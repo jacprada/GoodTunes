@@ -20,7 +20,7 @@ module.exports = function(passport) {
         // If email is not found, create and save new user into database
         var newUser       = new User();
         newUser.email     = email;
-        newUser.full_name = req.body.full_name;
+        newUser.username  = req.body.username;
         newUser.password  = newUser.encrypt(password);
         newUser.save(function(err) {
           if (err) return done(err);

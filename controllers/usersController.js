@@ -34,7 +34,7 @@ router.post('/:id', function(req, res){
   var id = req.params.id;
   User.findById({_id: id}, function(error, user) {
     if (error) return res.status(404).send({message: 'The user does not exist.'});
-    if (req.body.full_name) user.full_name = req.body.full_name;
+    if (req.body.username) user.username   = req.body.username;
     if (req.body.email) user.email         = req.body.email;
     user.save(function(error) {
       if (error) return res.status(500).send({message: "There seems to be an error in updating your user."});
