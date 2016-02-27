@@ -24,9 +24,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 // Setting local and online database
-var databaseURL = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/startup-ecosystems'
+var databaseURL = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/good-tunes'
 mongoose.connect(databaseURL);
 
 // Setting cors middleware and HTTP request logger middleware
 app.use(cors());
 app.use(morgan('dev'));
+
+// Setting and initializing passport authentication
+require('./config/passport')(passport);
+app.use(passport.initialize());
+
+// Retrieving controllers through router
+app.use(require('./controllers'));
+
+// Setting server port
+app.listen(process.env.PORT || 3000);
