@@ -1,7 +1,6 @@
 // Setting and exporting mongoose model for users
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
-var Startup  = require('./startup');
 
 var UserSchema = new mongoose.Schema({
   full_name: {type: String, required: true },
