@@ -3,22 +3,19 @@ var mongoose = require('mongoose');
 
 var AlbumSchema = new mongoose.Schema({
   title: String,
-  artist: String, // Maybe set as relational model
+  artist: String,
   year: Number,
   label: String,
-
-  tags: String, // Set as an array of tags
-
+  tags: [String],
   rating: Number,
   review: String,
-
-  link: {
+  reference: {
     facebook: String,
     spotify:  String,
     amazon: String,
   },
-
-  user: String, // Definitely set as relational model
+  reviewer: { type: mongoose.Schema.ObjectId, ref: 'User' }
+  // postedBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 });
 
 var Album = mongoose.model("Album", AlbumSchema);
