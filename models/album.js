@@ -14,8 +14,7 @@ var AlbumSchema = new mongoose.Schema({
     spotify:  String,
     amazon: String,
   },
-  reviewer: { type: mongoose.Schema.ObjectId, ref: 'User' }
-  // postedBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+  _reviewer: { type: mongoose.Schema.ObjectId, ref: 'User' } 
 });
 
 var Album = mongoose.model("Album", AlbumSchema);
