@@ -4,11 +4,20 @@ var app               = express();
 var cors              = require('cors');
 var bodyParser        = require('body-parser');
 var morgan            = require('morgan');
+var expressJWT        = require('express-jwt');
 var mongoose          = require('mongoose');
+var passport          = require('passport');
+var config            = require('./config/config');
+
 
 // Setting view folder and serving files from the public folder
 app.set("views", "./public");
 app.use(express.static(__dirname + '/public'));
+
+// Setting JWT authentication 
+app
+  .use('/api', expressJWT({ secret: config.secret })
+  .unless({path: ['/api/auth/signup', '/api/auth/signin']}));
 
 // Setting body parsing middleware for json and URL-encoded data 
 app.use(bodyParser.json());
