@@ -1,0 +1,19 @@
+{
+  "name": "good-tunes",
+  "version": "1.0.0",
+  "description": "quality music database",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacprada/GoodTunes.git"
+  },
+  "author": "yukon collective",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jacprada/GoodTunes/issues"
+  },
+  "homepage": "https://github.com/jacprada/GoodTunes#readme"
+}
