@@ -2,9 +2,8 @@
 var express = require('express');
 var router  = express.Router();
 
-// router.use('/api/startups', require('./startupController'));
-// router.use('/api/community', require('./communityMemberController'));
 router.use('/api/auth', require('./authenticationController'));
 router.use('/api/users', require('./usersController'));
+router.use('/api/albums', require('./albumsController'));
 
 module.exports = router;
